@@ -1,3 +1,4 @@
+require('dotenv').config();
 var express = require("express");
 var logger = require("morgan");
 var mongoose = require("mongoose");
@@ -10,8 +11,9 @@ var cheerio = require("cheerio");
 
 // Require all models
 var db = require("./models");
-
-var PORT = 3100;
+var DB_USER = process.env.DB_USER;
+var DB_PASS= process.env.DB_PASS;
+var PORT = process.env.PORT || 3100;
 
 // Initialize Express
 var app = express();
@@ -27,7 +29,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/practiceHW", { useNewUrlParser: true });
+mongoose.connect((process.env.PORT) ? `mongodb://${DB_USER}:${DB_PASS}@ds139334.mlab.com:39334/heroku_0hp25fpl` : "mongodb://localhost/practiceHW", { useNewUrlParser: true });
 
 // Routes
 
