@@ -30,9 +30,7 @@ app.use(express.static("public"));
 
 // Connect to the Mongo DB
 mongoose.connect(
-  process.env.PORT
-    ? `mongodb://${DB_USER}:${DB_PASS}@ds139334.mlab.com:39334/heroku_0hp25fpl`
-    : "mongodb://localhost/practiceHW",
+  process.env.MONGODB_URI || "mongodb://localhost/practiceHW",
   { useNewUrlParser: true }
 );
 
