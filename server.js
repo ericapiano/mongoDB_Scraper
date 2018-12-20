@@ -30,7 +30,7 @@ app.use(express.static("public"));
 
 // Connect to the Mongo DB
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/practiceHW",
+  process.env.MONGODB || "mongodb://localhost/practiceHW",
   { useNewUrlParser: true }
 );
 
