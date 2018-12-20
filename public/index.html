@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Scraping With Mongoose</title>
-    <style>
-      body { 
-        background-image: url("../images/rainbow.jpg");
 
-       }
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    />
+
+    <style>
+      body {
+        background-image: url("images/rainbow.jpg");
+      }
       #wrapper {
         width: 960px;
         margin-left: auto;
         margin-right: auto;
         padding-top: 5%;
-        background-image: url() 
+        background-image: url();
       }
       #articles {
         display: inline-block;
@@ -25,10 +30,11 @@
         float: right;
         width: 30%;
       }
-      textarea, input {
+      textarea,
+      input {
         display: block;
         width: 100%;
-        background-color: #FCF5C7;
+        background-color: #fcf5c7;
       }
       input {
         height: 36px;
@@ -38,11 +44,24 @@
         height: 200px;
         font-size: 18px;
       }
+
+      .container {
+        text-align: center;
+        color: green;
+        background-image: url("./images/rainbow.jpg");
+      }
     </style>
   </head>
   <body>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">PSYCHOLOGY TODAY SCRAPER</h1>
+        <p class="lead"></p>
+      </div>
+    </div>
+
     <div id="wrapper">
-      <h1>PSYCH TODAY NOTE SCRAPER</h1>
+      <!-- <h1>PSYCH TODAY NOTE SCRAPER</h1> -->
 
       <div id="articles"></div>
       <div id="notes"></div>
