@@ -1,4 +1,4 @@
-require('dotenv').config();
+require("dotenv").config();
 var express = require("express");
 var logger = require("morgan");
 var mongoose = require("mongoose");
@@ -12,7 +12,7 @@ var cheerio = require("cheerio");
 // Require all models
 var db = require("./models");
 var DB_USER = process.env.DB_USER;
-var DB_PASS= process.env.DB_PASS;
+var DB_PASS = process.env.DB_PASS;
 var PORT = process.env.PORT || 3100;
 
 // Initialize Express
@@ -29,7 +29,12 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Connect to the Mongo DB
-mongoose.connect((process.env.PORT) ? `mongodb://${DB_USER}:${DB_PASS}@ds139334.mlab.com:39334/heroku_0hp25fpl` : "mongodb://localhost/practiceHW", { useNewUrlParser: true });
+mongoose.connect(
+  process.env.PORT
+    ? `mongodb://${DB_USER}:${DB_PASS}@ds139334.mlab.com:39334/heroku_0hp25fpl`
+    : "mongodb://localhost/practiceHW",
+  { useNewUrlParser: true }
+);
 
 // Routes
 
@@ -52,10 +57,10 @@ app.get("/scrape", function(req, res) {
       result.link = $(this)
         .find(".blog_entry__teaser")
         .text();
-      
+
       result.picture = $(this)
         .find(".img-fluid")
-        .attr("src")
+        .attr("src");
 
       // console.log(JSON.stringify(result, null, 2))
       // Create a new Article using the `result` object built from scraping
@@ -113,7 +118,11 @@ app.post("/articles/:id", function(req, res) {
       // If a Note was created successfully, find one Article with an `_id` equal to `req.params.id`. Update the Article to be associated with the new Note
       // { new: true } tells the query that we want it to return the updated User -- it returns the original by default
       // Since our mongoose query returns a promise, we can chain another `.then` which receives the result of the query
-      return db.Article.findOneAndUpdate({ _id: req.params.id }, { note: dbNote._id }, { new: true });
+      return db.Article.findOneAndUpdate(
+        { _id: req.params.id },
+        { note: dbNote._id },
+        { new: true }
+      );
     })
     .then(function(dbArticle) {
       // If we were able to successfully update an Article, send it back to the client
