@@ -42,8 +42,12 @@ app.get("/scrape", function(req, res) {
   axios.get("https://www.psychologytoday.com/us").then(function(response) {
     // Then, we load that into cheerio and save it to $ for a shorthand selector
     var $ = cheerio.load(response.data);
+    console.log(response.data);
 
     // Now, we grab every h2 within an article tag, and do the following:
+    db.Article.deleteMany({})
+      .then(() => console.log("removed"))
+      .catch(err => console.log(err));
     $(".blog_entry--teaser").each(function(i, element) {
       // Save an empty result object
       var result = {};
@@ -65,7 +69,7 @@ app.get("/scrape", function(req, res) {
       db.Article.create(result)
         .then(function(dbArticle) {
           // View the added result in the console
-          console.log(dbArticle);
+          // console.log(dbArticle);
         })
         .catch(function(err) {
           // If an error occurred, log it
