@@ -3,7 +3,7 @@ A web application that scrapes the most recent articles from psychologytoday.com
 
 ## Demo Link
 
-https://ericapiano.github.io/mongoDB_Scraper/
+https://frozen-basin-13720.herokuapp.com/
 
 ## Technologies Used
 * MongoDB
@@ -18,3 +18,4 @@ https://ericapiano.github.io/mongoDB_Scraper/
 * Visual Studio Code
 * Robomongo
 * MongoDB/Mongoose
+* Heroku
