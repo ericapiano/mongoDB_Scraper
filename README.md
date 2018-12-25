@@ -1,5 +1,5 @@
 # mongoDB_Scraper
-A web application that scrapes the most recent articles from psychologytoday.com. When user clicks the article they are given the opportunity to post a comment about that article. 
+A web application that scrapes the most recent articles from psychologytoday.com and applies their titles and summary to the page. When user clicks the article they are given the opportunity to post a comment about that article. 
 
 ## Demo Link
 
